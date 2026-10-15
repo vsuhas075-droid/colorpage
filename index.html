@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Colour Changer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #B47CFF;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: background-color 0.5s;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #5B5FEF;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 17px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+
+        button:hover {
+            background-color: #4549CC;
+        }
+
+        .color-box {
+            background-color: #F2F2F2;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        #colorCode {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Random Colour Changer</h1>
+
+        <p>Click the button to explore new colours!</p>
+
+        <button onclick="changeColor()">
+            Change Colour
+        </button>
+
+        <div class="color-box">
+            <p>Current Colour Code:</p>
+            <div id="colorCode">#B47CFF</div>
+        </div>
+    </div>
+
+    <script>
+        function changeColor() {
+            let letters = "0123456789ABCDEF";
+            let color = "#";
+
+            for (let i = 0; i < 6; i++) {
+                let randomNumber = Math.floor(Math.random() * 16);
+                color = color + letters[randomNumber];
+            }
+
+            document.body.style.backgroundColor = color;
+            document.getElementById("colorCode").textContent = color;
+        }
+    </script>
+
+</body>
+</html>
